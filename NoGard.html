@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoGard</title>
+</head>
+<body>
+    <h1><i>No Gard</i></h1>
+    Insira seu nome: <input type="text" id="ipt_nome"> <br>
+    Insira cor da faixa: <input type="text" id="ipt_faixa"> <br>
+    Quantidade de vitórias: <input type="text" id="ipt_vitoria"><br>
+    Quantidade de derrotas: <input type="text" id="ipt_derrota"><br>
+    Quantidade de empates: <input type="text" id="ipt_empate"> <br>
+    <button onclick="calcular()">Calcular</button>
+    <div id="mostrar"></div>
+    
+</body>
+</html>
+<script>
+    function calcular() {
+        var nome = ipt_nome.value
+        var cor = ipt_faixa.value
+        var vitoria = ipt_vitoria.value
+        var derrota = ipt_derrota.value
+        var empate = ipt_empate.value
+
+        var branco_vitoria = vitoria * 4
+        var branco_derrota = derrota * 2
+        var branco_empate = empate * 2
+        var branco_totalpts = (Number(branco_vitoria) + Number(branco_empate)) - Number(branco_derrota)
+        var branco_pts_inicias = 0
+        var branco_ptsconquistados = 100
+        var branco_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var branco_porcVitoria = (vitoria / branco_total_lutas) * 100
+        var branco_porderroempa = ((Number(derrota) + Number(empate)) / branco_total_lutas) * 100
+        var branco_vencertodas = branco_total_lutas * 4
+        var branco_pordototal = (branco_totalpts / branco_vencertodas) * 100
+        if (cor == 'branca') {
+            mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${branco_totalpts} pontos, sendo ${branco_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${branco_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${branco_total_lutas} sendo ${branco_porcVitoria.toFixed(2)}% vitórias e ${branco_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${branco_vencertodas} pontos, hoje ele tem ${branco_pordototal.toFixed(2)}% do total <br>`
+        }
+        
+       
+
+        else if (cor == 'azul') {
+            
+            var azul_vitoria = vitoria * 10
+        var azul_derrota = derrota * 5
+        var azul_empate = empate * 2
+        var azul_totalpts = Number(1000) + (Number(azul_vitoria) + Number(azul_empate)) - Number(azul_derrota)
+        var azul_pts_inicias = (1000 / azul_totalpts) * 100
+        var azul_ptsconquistados = ((azul_totalpts - 1000) / azul_totalpts) * 100
+        var azul_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var azul_porcVitoria = (vitoria / azul_total_lutas) * 100
+        var azul_porderroempa = ((Number(derrota) + Number(empate)) / azul_total_lutas) * 100
+        var azul_vencertodas = Number(1000) + (azul_total_lutas * 10)
+        var azul_pordototal = (azul_totalpts / azul_vencertodas) * 100
+
+            mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${azul_totalpts} pontos, sendo ${azul_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${azul_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${azul_total_lutas} sendo ${azul_porcVitoria.toFixed(2)}% vitórias e ${azul_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${azul_vencertodas} pontos, hoje ele tem ${azul_pordototal.toFixed(2)}% do total <br>`
+        }
+
+        else if (cor == 'amarela') {
+            var amarela_vitoria = vitoria * 30
+        var amarela_derrota = derrota * 15
+        var amarela_empate = empate * 2
+        var amarela_totalpts = Number(2000) + (Number(amarela_vitoria) + Number(amarela_empate)) - Number(amarela_derrota)
+        var amarela_pts_inicias = (2000 / amarela_totalpts) * 100
+        var amarela_ptsconquistados = ((amarela_totalpts - 2000) / amarela_totalpts) * 100
+        var amarela_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var amarela_porcVitoria = (vitoria / amarela_total_lutas) * 100
+        var amarela_porderroempa = ((Number(derrota) + Number(empate)) / amarela_total_lutas) * 100
+        var amarela_vencertodas = Number(2000) + (amarela_total_lutas * 30)
+        var amarela_pordototal = (amarela_totalpts / amarela_vencertodas) * 100
+
+        mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${amarela_totalpts} pontos, sendo ${amarela_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${amarela_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${amarela_total_lutas} sendo ${amarela_porcVitoria.toFixed(2)}% vitórias e ${amarela_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${amarela_vencertodas} pontos, hoje ele tem ${amarela_pordototal.toFixed(2)}% do total <br>`
+        }
+
+        else if (cor == 'laranja') {
+            var laranja_vitoria = vitoria * 60
+        var laranja_derrota = derrota * 30
+        var laranja_empate = empate * 2
+        var laranja_totalpts = Number(5000) + (Number(laranja_vitoria) + Number(laranja_empate)) - Number(laranja_derrota)
+        var laranja_pts_inicias = (5000 / laranja_totalpts) * 100
+        var laranja_ptsconquistados = ((laranja_totalpts - 5000) / laranja_totalpts) * 100
+        var laranja_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var laranja_porcVitoria = (vitoria / laranja_total_lutas) * 100
+        var laranja_porderroempa = ((Number(derrota) + Number(empate)) / laranja_total_lutas) * 100
+        var laranja_vencertodas = Number(5000) + (laranja_total_lutas * 60)
+        var laranja_pordototal = (laranja_totalpts / laranja_vencertodas) * 100
+
+        mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${laranja_totalpts} pontos, sendo ${laranja_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${laranja_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${laranja_total_lutas} sendo ${laranja_porcVitoria.toFixed(2)}% vitórias e ${laranja_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${laranja_vencertodas} pontos, hoje ele tem ${laranja_pordototal.toFixed(2)}% do total <br>`
+        }
+        else if (cor == 'verde') {
+            var verde_vitoria = vitoria * 100
+        var verde_derrota = derrota * 50
+        var verde_empate = empate * 2
+        var verde_totalpts = Number(10000) + (Number(verde_vitoria) + Number(verde_empate)) - Number(verde_derrota)
+        var verde_pts_inicias = (10000 / verde_totalpts) * 100
+        var verde_ptsconquistados = ((verde_totalpts - 10000) / verde_totalpts) * 100
+        var verde_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var verde_porcVitoria = (vitoria / verde_total_lutas) * 100
+        var verde_porderroempa = ((Number(derrota) + Number(empate)) / verde_total_lutas) * 100
+        var verde_vencertodas = Number(10000) + (verde_total_lutas * 100)
+        var verde_pordototal = (verde_totalpts / verde_vencertodas) * 100
+
+        mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${verde_totalpts} pontos, sendo ${verde_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${verde_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${verde_total_lutas} sendo ${verde_porcVitoria.toFixed(2)}% vitórias e ${verde_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${verde_vencertodas} pontos, hoje ele tem ${verde_pordototal.toFixed(2)}% do total <br>`
+        }
+        else if (cor == 'roxa') {
+            var roxa_vitoria = vitoria * 150
+        var roxa_derrota = derrota * 75
+        var roxa_empate = empate * 2
+        var roxa_totalpts = Number(15000) + (Number(roxa_vitoria) + Number(roxa_empate)) - Number(roxa_derrota)
+        var roxa_pts_inicias = (15000 / roxa_totalpts) * 100
+        var roxa_ptsconquistados = ((roxa_totalpts - 15000) / roxa_totalpts) * 100
+        var roxa_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var roxa_porcVitoria = (vitoria / roxa_total_lutas) * 100
+        var roxa_porderroempa = ((Number(derrota) + Number(empate)) / roxa_total_lutas) * 100
+        var roxa_vencertodas = Number(15000) + (roxa_total_lutas * 150)
+        var roxa_pordototal = (roxa_totalpts / roxa_vencertodas) * 100
+
+        mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${roxa_totalpts} pontos, sendo ${roxa_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${roxa_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${roxa_total_lutas} sendo ${roxa_porcVitoria.toFixed(2)}% vitórias e ${roxa_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${roxa_vencertodas} pontos, hoje ele tem ${roxa_pordototal.toFixed(2)}% do total <br>`
+        }
+        else if (cor == 'marrom') {
+            var marrom_vitoria = vitoria * 300
+        var marrom_derrota = derrota * 150
+        var marrom_empate = empate * 2
+        var marrom_totalpts = Number(25000) + (Number(marrom_vitoria) + Number(marrom_empate)) - Number(marrom_derrota)
+        var marrom_pts_inicias = (25000 / marrom_totalpts) * 100
+        var marrom_ptsconquistados = ((marrom_totalpts - 25000) / marrom_totalpts) * 100
+        var marrom_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var marrom_porcVitoria = (vitoria / marrom_total_lutas) * 100
+        var marrom_porderroempa = ((Number(derrota) + Number(empate)) / marrom_total_lutas) * 100
+        var marrom_vencertodas = Number(25000) + (marrom_total_lutas * 300)
+        var marrom_pordototal = (marrom_totalpts / marrom_vencertodas) * 100
+
+        mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${marrom_totalpts} pontos, sendo ${marrom_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${marrom_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${marrom_total_lutas} sendo ${marrom_porcVitoria.toFixed(2)}% vitórias e ${marrom_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${marrom_vencertodas} pontos, hoje ele tem ${marrom_pordototal.toFixed(2)}% do total <br>`
+        } 
+        else if (cor == 'preta') {
+            var preta_vitoria = vitoria * 500
+        var preta_derrota = derrota * 250
+        var preta_empate = empate * 2
+        var preta_totalpts = Number(50000) + (Number(preta_vitoria) + Number(preta_empate)) - Number(preta_derrota)
+        var preta_pts_inicias = (50000 / preta_totalpts) * 100
+        var preta_ptsconquistados = ((preta_totalpts - 50000) / preta_totalpts) * 100
+        var preta_total_lutas = Number(vitoria) + Number(derrota) + Number(empate)
+        var preta_porcVitoria = (vitoria / preta_total_lutas) * 100
+        var preta_porderroempa = ((Number(derrota) + Number(empate)) / preta_total_lutas) * 100
+        var preta_vencertodas = Number(50000) (preta_total_lutas * 500)
+        var preta_pordototal = (preta_totalpts / preta_vencertodas) * 100
+
+        mostrar.innerHTML += `<br> ${nome} da faixa ${cor} tem ${preta_totalpts} pontos, sendo ${preta_pts_inicias.toFixed(2)}% dos pontos iniciais da faixa e ${preta_ptsconquistados.toFixed(2)}% em pontos conquistados em lutas <br>
+Total de lutas: ${preta_total_lutas} sendo ${preta_porcVitoria.toFixed(2)}% vitórias e ${preta_porderroempa.toFixed(2)}% derrotas ou empates <br>
+Se ${nome} tivesse vitória em todas as lutas ele teria ${preta_vencertodas} pontos, hoje ele tem ${preta_pordototal.toFixed(2)}% do total <br>`
+        }
+        else {
+            mostrar.innerHTML = `ERROR`
+        }
+        }
+</script>
